@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from todo_app.views import index
 
 import todo_app.views
 
 urlpatterns = [
-    path('', todo_app.views.index),
-    #path('kukuruzo/', include('todo_app.urls') ),
+    path('', index, name='todo_main'),
 
 ]
