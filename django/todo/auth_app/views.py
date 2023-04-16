@@ -37,8 +37,13 @@ def registration(request: WSGIRequest):
 
         user = User.objects.filter(
             username=username,
-            password=password
+            password=password,
+            email=email,
         )
+        if password != password_confirm:
+            return render(request, 'registration.html', {
+                'error_message': 'Пароли не совпадают',
+            })
 
     return render(request, 'registration.html')
 
