@@ -26,7 +26,7 @@ def login_view(request: WSGIRequest):
             })
         login(request, user)
 
-        if next_page is None:
+        if next_page is not None:
             return redirect(next_page)
 
         return redirect('todo_main')

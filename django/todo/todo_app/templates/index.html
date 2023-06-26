@@ -1,4 +1,5 @@
 {% load static %}
+{% include 'nav.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'todo_app/style.css' %}">
 </head>
 <body>
+{% block nav %}{% endblock %}
 <div id="app">
     <section class="todoapp">
         <header>
@@ -47,7 +49,7 @@
             </ul>
         </main>
         <footer class='footer'>
-            <span class="todo-count"> <strong>10</strong> items left </span>
+            <span class="todo-count"> <strong>{{tasks_array.count}}</strong> items left </span>
             <ul class="filters">
                 <li>
                     <a href="/">All</a>

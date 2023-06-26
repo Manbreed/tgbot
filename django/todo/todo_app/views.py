@@ -20,11 +20,14 @@ def index(request: WSGIRequest):
             todo = TodoTask.objects.get(pk=task_id)
             todo.delete()
            """
+    all_tasks = TodoTask.objects.all().order_by('-id')
+
         # можно сократить посмотреть в лекции
         # TodoTask.objects.get(pk=request.POST.get('task_id')).delete()
     # print(request.POST.get('name'))
     return render(request, 'index.html', {
-        'tasks_array': TodoTask.objects.all().order_by('-id')
+        #'tasks_array': TodoTask.objects.all().order_by('-id'),
+            'tasks_array' : all_tasks
     })
 
 
